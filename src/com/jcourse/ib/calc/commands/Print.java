@@ -1,4 +1,4 @@
-package calc;
+package com.jcourse.ib.calc.commands;
 
 import java.util.Map;
 import java.util.Stack;
@@ -10,9 +10,9 @@ import java.util.Stack;
  * Time: 14:55
  * To change this template use File | Settings | File Templates.
  */
-public class Print implements cmd
+public class Print implements Cmd
 {
-    public void exec(String arg, Stack stack, Map<String, Double> map )
+    public void exec(String[] arg, Stack stack, Map<String, Double> map )
     {
 
     }
