@@ -26,7 +26,6 @@ public class Calc
 
         for(String stroka : commandsStr)
         {
-            System.out.println(stroka);
             String[] splitStr = null;
             Cmd command = null;
 
