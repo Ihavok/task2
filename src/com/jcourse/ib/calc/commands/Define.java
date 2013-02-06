@@ -14,6 +14,8 @@ public class Define implements Cmd
 {
     public void exec(String[] arg, Stack stack, Map<String, Double> map)
     {
-
+         String par_name = arg[1];
+         Double par_value = Double.valueOf(arg[2]);
+         map.put(par_name, par_value);
     }
 }

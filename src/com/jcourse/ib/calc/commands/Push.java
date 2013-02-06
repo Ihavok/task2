@@ -14,6 +14,7 @@ public class Push implements Cmd
 {
     public void exec(String[] arg, Stack stack, Map<String, Double> map )
     {
-
+        String el = arg[1];
+        stack.push(el);
     }
 }

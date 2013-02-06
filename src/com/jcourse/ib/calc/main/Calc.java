@@ -40,6 +40,7 @@ public class Calc
                     defineMap
             );
         }
+
     }
 
     private List<String> read_commands()

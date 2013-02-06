@@ -14,6 +14,10 @@ public class Print implements Cmd
 {
     public void exec(String[] arg, Stack stack, Map<String, Double> map )
     {
-
+        if ( !stack.empty() )
+        {
+            String el = stack.pop().toString();
+            System.out.println(el);
+        }
     }
 }
