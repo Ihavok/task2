@@ -1,6 +1,9 @@
 package com.jcourse.ib.calc.main;
 
 import com.jcourse.ib.calc.commands.*;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 /**
@@ -13,6 +16,26 @@ import java.util.*;
 
 public class Calc
 {
+    static Properties comandsProps = new Properties();
+    static
+    {
+        try
+        {
+            InputStream in = Calc.class.getResourceAsStream("conf.properties");
+            comandsProps.load(in);
+            in.close();
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+
     public void main()
     {
         Map<String, Cmd> cmdMap = new HashMap<>();
@@ -29,7 +52,6 @@ public class Calc
             String[] splitStr = null;
             Cmd command = null;
 
-            //Parser.parse(stroka, splitStr, command, cmdMap);
             stroka = stroka.trim();
             splitStr = stroka.split(" ");
             command =  cmdMap.get(splitStr[0]);
@@ -60,12 +82,35 @@ public class Calc
 
     private void initCmdMap(Map<String, Cmd> cmdMap)
     {
-        cmdMap.put("#", new Komment());
-        cmdMap.put("PUSH", new Push());
-        cmdMap.put("POP", new Pop());
-        cmdMap.put("PRINT", new Print());
-        cmdMap.put("DEFINE", new Define());
-        cmdMap.put("SQRT", new Sqrt());
-        cmdMap.put("+", new Plus());
+        if (!comandsProps.isEmpty())
+        {
+            Enumeration propertyNames = comandsProps.propertyNames();
+            while (propertyNames.hasMoreElements())
+            {
+                String operName = (String)propertyNames.nextElement();
+                String operClass = comandsProps.getProperty(operName);
+
+                try
+                {
+                    cmdMap.put(operName, (Cmd) Class.forName(operClass).newInstance());
+                }
+                catch (ClassNotFoundException e)
+                {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+                catch (InstantiationException e)
+                {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+                catch (IllegalAccessException e)
+                {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+            }
+        }
+        else
+        {
+
+        }
     }
 }

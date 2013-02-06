@@ -14,7 +14,7 @@ public abstract class UnarOperation implements Cmd
 {
     public void exec(String[] arg, Stack stack, Map<String, Double> map)
     {
-         if ( stack.size() > 1 )
+         if ( stack.size() > 0 )
          {
              String el = stack.pop().toString();
 
