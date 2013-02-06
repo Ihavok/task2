@@ -26,6 +26,7 @@ public class Calc
 
         for(String stroka : commandsStr)
         {
+            System.out.println(stroka);
             String[] splitStr = null;
             Cmd command = null;
 
@@ -50,6 +51,11 @@ public class Calc
         stroki.add("PUSH a");
         stroki.add("SQRT");
         stroki.add("PRINT");
+
+        stroki.add("PUSH 4");
+        stroki.add("PUSH a");
+        stroki.add("+");
+        stroki.add("PRINT");
         return stroki;
     }
 
@@ -61,5 +67,6 @@ public class Calc
         cmdMap.put("PRINT", new Print());
         cmdMap.put("DEFINE", new Define());
         cmdMap.put("SQRT", new Sqrt());
+        cmdMap.put("+", new Plus());
     }
 }

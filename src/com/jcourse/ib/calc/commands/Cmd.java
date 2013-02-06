@@ -18,4 +18,6 @@ public interface Cmd
             Stack stack,
             Map<String, Double> map
             );
+
+    //Double operation(Double val1, Double val2);
 }
