@@ -16,13 +16,16 @@ public abstract class BinarOperation implements Cmd
     {
          if ( stack.size() > 1 )
          {
+             //String el1 = stack.get(0).toString();
+             //String el2 = stack.get(1).toString();
+
              String el1 = stack.pop().toString();
              String el2 = stack.pop().toString();
 
              Double val1 = det_map_value_by_par(el1, map);
-             Double val2 = det_map_value_by_par(el2, map);;
+             Double val2 = det_map_value_by_par(el2, map);
 
-             Double val = operation(val1,val2);
+             Double val = operation(val1, val2);
              stack.push(val);
          }
     }
