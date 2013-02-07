@@ -1,0 +1,9 @@
+DEFINE a 25
+PUSH a
+SQRT
+PRINT
+
+PUSH 4
+PUSH a
+-
+PRINT
