@@ -12,11 +12,6 @@ import java.util.Stack;
  */
 public class Plus extends BinarOperation implements Cmd
 {
-    public void exec(String[] arg, Stack stack, Map<String, Double> map )
-    {
-         super.exec(arg, stack, map);
-    }
-
     Double operation(Double val1, Double val2)
     {
         return val1 + val2;
