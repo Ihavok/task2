@@ -14,6 +14,6 @@ public class Pop  implements Cmd
 {
     public void exec(String[] arg, Stack stack, Map<String, Double> map )
     {
-
+        stack.pop();
     }
 }
