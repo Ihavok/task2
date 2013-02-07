@@ -13,7 +13,16 @@ public class StackCalc
 {
     public static void main(String arg[])
     {
-        Calc calc = new Calc();
-        calc.main();
+
+        try
+        {
+            Calc calc = new Calc();
+            calc.execute_commands_from_console();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        //calc.main();
     }
 }
