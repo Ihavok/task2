@@ -16,7 +16,8 @@ public class Print implements Cmd
     {
         if ( !stack.empty() )
         {
-            String el = stack.pop().toString();
+            //String el = stack.pop().toString();
+            String el = stack.lastElement().toString();
             System.out.println(el);
         }
     }
