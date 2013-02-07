@@ -16,8 +16,8 @@ public abstract class UnarOperation implements Cmd
     {
          if ( stack.size() > 0 )
          {
+             //String el = stack.get(0).toString();
              String el = stack.pop().toString();
-
              Double val = det_map_value_by_par(el, map);
 
              Double rez_val = operation(val);
